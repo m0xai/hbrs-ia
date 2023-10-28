@@ -32,4 +32,10 @@ public class SalesmanController {
         salesmanService.deleteSalesman(employeeId);
         return new ResponseEntity<>("Salesman with employeeID: " + employeeId + " successfully deleted", HttpStatus.OK);
     }
+
+    @PutMapping("/salesmen/{employeeId}/")
+    public ResponseEntity<Salesman> updateSalesman(@PathVariable Integer employeeId, @RequestBody Salesman salesman) {
+        return new ResponseEntity<>(salesmanService.updateSalesman(employeeId, salesman), HttpStatus.OK);
+    }
+
 }

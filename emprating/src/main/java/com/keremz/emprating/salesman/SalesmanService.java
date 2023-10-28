@@ -30,4 +30,17 @@ public class SalesmanService {
         }
         salesmanRepository.deleteByEmployeeId(employeeId);
     }
+
+    public Salesman updateSalesman(Integer employeeId, Salesman salesman) throws RuntimeException {
+        if (!salesmanRepository.existsByEmployeeId(employeeId)) {
+            throw new RuntimeException("Fehler: Salesman with ID: " + employeeId + " not found");
+        }
+
+        Salesman foundSalesman = salesmanRepository.findByEmployeeId(employeeId);
+        foundSalesman.setName(salesman.getName());
+        foundSalesman.setDepartment(salesman.getDepartment());
+        foundSalesman.setEmployeeId(salesman.getEmployeeId());
+
+        return salesmanRepository.save(foundSalesman);
+    }
 }
