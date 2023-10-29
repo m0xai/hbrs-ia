@@ -37,6 +37,7 @@ public class RecordService {
                 .targetValue(recordEntity.getTargetValue())
                 .actualValue(recordEntity.getActualValue())
                 .bonus(recordEntity.getBonus())
+                .report(recordEntity.getReport())
                 .build();
         return recordRepository.save(updatedRecord);
     }
