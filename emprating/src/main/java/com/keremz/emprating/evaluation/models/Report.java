@@ -24,7 +24,7 @@ public class Report {
     OpinionSum opinionSum;
     String remarks;
 
-    @DocumentReference(lazy = true)
+    @DocumentReference
     @NotNull(message = "Employee field of Report cannot be blank")
     private Salesman salesman;
 }

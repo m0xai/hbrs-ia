@@ -21,7 +21,7 @@ public class Record {
     private Integer actualValue;
     private Integer bonus;
 
-    @DocumentReference(lazy = true)
+    @DocumentReference
     @NotNull(message = "Report field of Report cannot be blank")
     private Report report;
 }
