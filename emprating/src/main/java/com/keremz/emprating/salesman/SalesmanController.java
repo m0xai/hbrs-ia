@@ -6,6 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 public class SalesmanController {
 
@@ -25,6 +28,14 @@ public class SalesmanController {
     @GetMapping("/salesmen/{employeeId}/")
     public ResponseEntity<Salesman> getSalesman(@PathVariable Integer employeeId) {
         return new ResponseEntity<>(salesmanService.getSalesman(employeeId), HttpStatus.OK);
+    }
+
+    @GetMapping("/salesmen/")
+    public ResponseEntity<Map<String, Object>> getSalesmen() {
+        Map<String, Object> response = new HashMap<>();
+        response.put("count", salesmanService.countSalesmen());
+        response.put("results", salesmanService.getSalesmen());
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @DeleteMapping("/salesmen/{employeeId}/")

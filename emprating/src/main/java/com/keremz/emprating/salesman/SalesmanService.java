@@ -3,6 +3,8 @@ package com.keremz.emprating.salesman;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SalesmanService {
 
@@ -15,6 +17,14 @@ public class SalesmanService {
             throw new RuntimeException("Fehler: Salesman already exists.");
         }
         return salesmanRepository.save(salesman);
+    }
+
+    public List<Salesman> getSalesmen() {
+        return salesmanRepository.findAll();
+    }
+
+    public Long countSalesmen() {
+        return salesmanRepository.count();
     }
 
     public Salesman getSalesman(Integer employeeId) {
