@@ -50,7 +50,7 @@ public class RecordController {
         }
     }
 
-    @DeleteMapping("/records/{recordId}")
+    @DeleteMapping("/records/{recordId}/")
     public ResponseEntity<String> deleteRecord(@PathVariable String recordId) {
         try {
             return new ResponseEntity<>(recordService.deleteRecord(recordId), HttpStatus.OK);
